@@ -24,16 +24,15 @@ public:
             return newHead;
         }
         
-        ListNode *previous = newHead;
-        ListNode *current = previous->next;
-        while(current != NULL)
+        //ListNode *previous = newHead;
+        //ListNode *current = previous->next;
+        ListNode *current = newHead;
+        while(current->next != NULL)
         {
-            if(current->val == val){
-                previous->next = current->next;
-                current = current->next;
+            if(current->next->val == val){
+                current->next = current->next->next;
             }
             else{
-                previous = current;
                 current = current->next;
             }
         }
