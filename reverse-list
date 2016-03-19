@@ -1,0 +1,20 @@
+//This idea is better than mine
+//I want to record it
+//An answer from Leetcode
+
+struct ListNode* reverseList(struct ListNode* head) {
+    if(!head) return head;  // return NULL back
+    struct ListNode *temp;
+    struct ListNode *saved = NULL;
+
+    while(head->next != NULL) {
+        temp = head->next;  // get [original next]
+        head->next = saved; // next backwards
+        saved = head;       // save current node
+        head = temp;        // current node set to [original next] to proceed
+    }
+
+    // now, *head is the last node
+    head->next = saved;     // point to previous node
+    return head;
+}
